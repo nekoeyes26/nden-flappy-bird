@@ -39,7 +39,7 @@ public class ScoreUpdate : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        GameSingleton.instance.OnScoreChanged += HandleScoreChanged;
+        GameEvents.OnScoreChanged += HandleScoreChanged;
         // scoreText.text = "0";
         Debug.Log("Subscribed to OnScoreChanged event.");
     }

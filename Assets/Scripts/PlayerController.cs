@@ -13,14 +13,9 @@ public class PlayerController : MonoBehaviour
     public AudioSource dieSound;
     public AudioSource scoreSound;
     public AudioSource wingSound;
+    public MainManager mainManager;
 
     private Rigidbody2D _rb;
-
-    // //delegate()
-    // public delegate void Scoring();
-
-    // //event
-    // public static event Scoring ScoreUp;
 
     private void OnEnable()
     {
@@ -60,21 +55,15 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            GameSingleton.instance.GameOver();
+            mainManager.GameOver();
             dieSound.Play();
         }
         else if (other.gameObject.CompareTag("Scoring"))
         {
             GameSingleton.instance.IncreaseScore();
             scoreSound.Play();
-            // OnScoring();
         }
     }
-
-    // public void OnScoring()
-    // {
-    //     ScoreUp();
-    // }
 
     public void ResetPlayer()
     {
